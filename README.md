@@ -1,11 +1,6 @@
-# [DEPRECATED] FastGCM
-[![Join the chat at https://gitter.im/iammert/FastGCM](https://img.shields.io/badge/GITTER-join%20chat-green.svg)](https://gitter.im/iammert/FastGCM)
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-FastGCM-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2219)
+# This Fork
 
-Fast Google Cloud Messaging(GCM) integration library for Android. Includes Topic Messaging.
-
-# SUGGESTION
-I suggest you to use [FCM(Firebase Cloud Messaging)](https://firebase.google.com/docs/cloud-messaging/android/client). It is so clear and updated.
+We still use this and needed to update it to be compatible with Android Oreo. We will keep it up to date.
 
 # Why
 
