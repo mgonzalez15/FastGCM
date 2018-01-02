@@ -1,12 +1,15 @@
 package co.mobiwise.fastgcm;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -67,7 +70,11 @@ public class GCMManager implements IGCMManager{
 
         int mStatus = GooglePlayServicesUtil.isGooglePlayServicesAvailable(mContext);
         if(mStatus == ConnectionResult.SUCCESS)
-            mContext.startService(new Intent(mContext, RegistrationService.class));
+            if (Build.VERSION.SDK_INT > 25) {
+                mContext.startForegroundService(new Intent(mContext, RegistrationService.class));
+            } else {
+                mContext.startService(new Intent(mContext, RegistrationService.class));
+            }
         else{
             if(mGcmListener != null)
                 mGcmListener.onPlayServiceError();

@@ -1,6 +1,7 @@
 package co.mobiwise.fastgcm;
 
 import android.content.Intent;
+import android.os.Build;
 
 import com.google.android.gms.iid.InstanceIDListenerService;
 
@@ -16,6 +17,10 @@ public class IDListenerService extends InstanceIDListenerService{
      */
     @Override
     public void onTokenRefresh() {
-        startService(new Intent(this, RegistrationService.class));
+        if (Build.VERSION.SDK_INT > 25) {
+            startForegroundService(new Intent(this, RegistrationService.class));
+        } else {
+            startService(new Intent(this, RegistrationService.class));
+        }
     }
 }
